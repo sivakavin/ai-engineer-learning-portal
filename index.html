@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 10275)
+Total output lines: 519
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,13 +23,12 @@
       <p class="login-copy">Sign in to continue building your AI engineering skills.</p>
       <form id="login-form" novalidate>
         <label for="login-username">Username</label>
-        <input id="login-username" name="username" autocomplete="username" placeholder="admin or user" required />
+        <input id="login-username" name="username" autocomplete="username" placeholder="Enter your username" required />
         <label for="login-password">Password</label>
         <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
         <p class="login-error" id="login-error" role="alert" aria-live="polite"></p>
         <button class="login-submit" type="submit">Sign in <span>&rarr;</span></button>
       </form>
-      <div class="demo-accounts"><b>DEMO ACCOUNTS</b><span><code>admin</code> / <code>12345</code></span><span><code>user</code> / <code>12345</code></span></div>
       <p class="demo-note">Demo sign-in only. Use a secure backend before publishing real accounts.</p>
     </div>
   </section>
@@ -41,7 +43,7 @@
   </aside>
 
   <main class="main">
-    <header class="topbar"><div class="crumb">Learning paths <span>/</span> AI Engineer</div><div class="top-actions"><span id="admin-access-note" class="admin-access-note" hidden>ADMIN · ALL LESSON LEVELS UNLOCKED</span><button class="icon-button" aria-label="Search">&#8981;</button><button class="help-button">? <span>Help</span></button></div></header>
+    <header class="topbar"><div class="crumb">Learning paths <span>/</span> AI Engineer</div><div class="top-actions"><span id="admin-access-note" class="admin-access-note" hidden>ADMIN · ALL LESSON LEVELS UNLOCKED</span><button class="icon-button" aria-label="Search">&#8981;</button><button class="help-button">? <span>Help</span></button><button class="mobile-signout-button" id="mobile-signout-button">Sign out</button></div></header>
     <section class="hero">
       <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> YOUR CAREER PATH</div><h1>Become an<br><em>AI Engineer.</em></h1><p>Build the skills to ship reliable AI products&#8212;from your first Python script to production-grade agent systems.</p><div class="hero-meta"><span>8&#8211;10 weeks</span><span>6 modules</span><span>Build as you learn</span></div></div>
       <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orb-core"><span>&#10035;</span></div><div class="orbit-chip chip-python">Py</div><div class="orbit-chip chip-agent">AGENT</div><div class="orbit-chip chip-cloud">&#9729;</div><div class="orbit-chip chip-code">{ }</div><div class="hero-note"><span class="note-dot"></span> Project-first learning</div></div>
@@ -254,89 +256,7 @@
               "intro": "Use a function to calculate progress from the lesson data instead of hard-coding the answer.",
               "concept": "Derived values should come from the source data. Count completed lessons, divide by the total, and guard against an empty list so the calculation does not divide by zero.",
               "steps": [
-                "Add a count_completed function that counts records whose done value is true.",
-                "Add a progress_percent function that returns 0 for an empty list.",
-                "Print the number completed and the percentage.",
-                "Change one done value and see the result update."
-              ],
-              "code": "def count_completed(lessons):\n    return sum(1 for lesson in lessons if lesson[\"done\"])\n\ndef progress_percent(lessons):\n    if not lessons:\n        return 0\n    return round(count_completed(lessons) / len(lessons) * 100)\n\nprint(f\"Progress: {count_completed(lessons)}/{len(lessons)} lessons ({progress_percent(lessons)}%)\")",
-              "expected": "Progress: 2/3 lessons (67%)",
-              "hint": "sum can add numbers. The expression 1 for each completed lesson counts how many are complete."
-            },
-            {
-              "id": "l3-mark",
-              "title": "Mark a lesson complete",
-              "time": "15 min",
-              "intro": "Add a small interaction: the learner chooses a lesson number and the program updates its status.",
-              "concept": "User input arrives as text, even when it looks like a number. Convert it with int before using it as a list index. Validate the range before accessing the list to avoid an IndexError.",
-              "steps": [
-                "Print each lesson with a number starting at 1.",
-                "Ask the learner which lesson to complete.",
-                "Convert their answer to an integer and check it is between 1 and the number of lessons.",
-                "Update the selected lesson and print the new progress."
-              ],
-              "code": "for number, lesson in enumerate(lessons, start=1):\n    status = \"✓\" if lesson[\"done\"] else \"○\"\n    print(f\"{number}. {status} {lesson['title']}\")\n\nchoice = int(input(\"Lesson number to complete: \"))\nif 1 <= choice <= len(lessons):\n    lessons[choice - 1][\"done\"] = True\n    print(\"Lesson marked complete.\")\nelse:\n    print(\"Choose a number from the list.\")",
-              "expected": "After entering 3, the program prints: Lesson marked complete.",
-              "hint": "Lists start at index 0, but people count from 1. That is why the selected index is choice - 1."
-            },
-            {
-              "id": "l3-capstone",
-              "title": "Put it together and improve it",
-              "time": "25 min",
-              "intro": "Finish the project by combining the lesson list, helper functions, menu, and progress report into one runnable script.",
-              "concept": "A useful first version is small, complete, and easy to run. Before adding advanced features, make sure the main path works and errors are handled in a helpful way. This project is intentionally local and does not need an account or API key.",
-              "steps": [
-                "Combine the earlier snippets into tracker.py.",
-                "Add a menu that lets the learner list lessons, mark one complete, or quit.",
-                "Handle non-number input with try/except ValueError and show a friendly message.",
-                "Run the app twice and note that progress resets. In a later level, persist it to a JSON file."
-              ],
-              "code": "def show_lessons(lessons):\n    for number, lesson in enumerate(lessons, start=1):\n        status = \"✓\" if lesson[\"done\"] else \"○\"\n        print(f\"{number}. {status} {lesson['title']}\")\n\nshow_lessons(lessons)\nprint(f\"Progress: {progress_percent(lessons)}%\")",
-              "expected": "A numbered lesson list and a progress percentage based on the current data.",
-              "hint": "Build one feature at a time: list lessons first, then mark complete, then add the menu. Keep a working copy before each larger change."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "rag",
-      "title": "Level 4 · RAG & knowledge systems",
-      "tag": "COMING NEXT",
-      "description": "Load documents, retrieve relevant context, and evaluate grounded answers.",
-      "icon": "◫",
-      "tone": "#e4eff2",
-      "time": "Coming soon",
-      "status": "locked",
-      "sections": []
-    },
-    {
-      "id": "agents",
-      "title": "Level 5 · Agents, tools & MCP",
-      "tag": "COMING NEXT",
-      "description": "Build tool-using agent workflows with clear boundaries and observable behavior.",
-      "icon": "⌘",
-      "tone": "#f5e8de",
-      "time": "Coming soon",
-      "status": "locked",
-      "sections": []
-    },
-    {
-      "id": "production",
-      "title": "Level 6 · Google Cloud deployment",
-      "tag": "GCP DEPLOYMENT",
-      "description": "Containerize an AI app, publish it to Artifact Registry, deploy to Cloud Run, and automate releases.",
-      "icon": "↗",
-      "tone": "#e3ebdf",
-      "time": "3 hr 15 min",
-      "status": "locked",
-      "sections": [
-        {
-          "title": "Section A · Google Cloud account and project",
-          "lessons": [
-            {
-              "id": "l6-project-create",
-              "title": "Create your Google Cloud account and project",
+                "Add a count_completed…1275 tokens truncated…e Cloud account and project",
               "time": "25 min",
               "intro": "Before a CLI can address cloud resources, you need a Google sign-in, a Google Cloud project, and (for many services) an active billing account linked to that project.",
               "concept": "A Google account is the identity you sign in with. A Google Cloud project is the container for resources and has a unique Project ID. The display name can be changed; the Project ID is the value you pass to gcloud. Billing links usage to a Cloud Billing account. Eligibility and trial offers vary. Linking billing can lead to charges, so use a project you are authorized to manage and set budget alerts.",
