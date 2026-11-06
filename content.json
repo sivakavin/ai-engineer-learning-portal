@@ -1,0 +1,462 @@
+{
+  "pathTitle": "AI Engineer",
+  "learner": "Sivakumar V",
+  "totalLessons": 20,
+  "modules": [
+    {
+      "id": "setup",
+      "title": "Level 1 Â· Set up your workspace",
+      "tag": "START HERE",
+      "description": "Install the tools, create a project, and run your first Python program.",
+      "icon": "âŒ˜",
+      "tone": "#e8f1dc",
+      "time": "55 min",
+      "status": "current",
+      "sections": [
+        {
+          "title": "Get your tools ready",
+          "lessons": [
+            {
+              "id": "l1-vscode",
+              "title": "Install and open VS Code",
+              "time": "10 min",
+              "intro": "VS Code is your workbench: it helps you edit files, search your project, use a terminal, and install language tools.",
+              "concept": "A code editor does not run Python by itself. VS Code is the editor; Python is the runtime that executes your .py files. The Python extension connects the two and adds useful editor features.",
+              "steps": [
+                "Install Visual Studio Code from the official code.visualstudio.com website.",
+                "Open VS Code and choose File â†’ Open Folder.",
+                "Create and open a folder named ai-engineer-journey.",
+                "Open Extensions (the blocks icon), search for Python by Microsoft, and install it."
+              ],
+              "code": "# We will use this editor to create Python files in the next lesson",
+              "expected": "VS Code opens the ai-engineer-journey folder. The Explorer panel shows your project folder.",
+              "hint": "Use one folder per project. Opening the folder (not just a single file) makes the terminal and file tree work together."
+            },
+            {
+              "id": "l1-python",
+              "title": "Install Python and check it",
+              "time": "10 min",
+              "intro": "Python needs to be installed on your computer before VS Code can run Python programs.",
+              "concept": "A Python version is the interpreter that reads and executes your code. Use Python 3.11 or newer for this learning path. On Windows, enable the installer option that adds Python to PATH so the terminal can find it.",
+              "steps": [
+                "Install Python 3 from python.org/downloads. On Windows, check Add python.exe to PATH in the installer.",
+                "In VS Code choose Terminal â†’ New Terminal.",
+                "Run the version command for your system.",
+                "If the command is not found, finish installation and restart VS Code."
+              ],
+              "code": "# Windows\npython --version\n\n# macOS or Linux\npython3 --version",
+              "expected": "Python 3.11.x (or a newer Python 3 version)",
+              "hint": "Some Windows installations use the py launcher: try py --version if python --version is not recognized."
+            },
+            {
+              "id": "l1-project",
+              "title": "Create a project and Python file",
+              "time": "10 min",
+              "intro": "A project starts as a folder containing files that belong together. Give files clear names so you can find and run them easily.",
+              "concept": "Python source files use the .py extension. The terminal runs commands from its current folder, so first confirm it is inside your project directory.",
+              "steps": [
+                "In VS Code Explorer, create a file named hello.py in your project folder.",
+                "Type the code shown here and save the file.",
+                "Check that the terminal path ends with ai-engineer-journey.",
+                "Run the file from that terminal."
+              ],
+              "code": "print(\"Hello, AI engineering!\")",
+              "expected": "Hello, AI engineering!",
+              "hint": "Run python hello.py on Windows, or python3 hello.py on macOS/Linux. Save before running (Ctrl+S or Cmd+S)."
+            },
+            {
+              "id": "l1-debug",
+              "title": "Read an error and fix it",
+              "time": "10 min",
+              "intro": "Errors are normal feedback. Learning to read the last line of an error message is one of the most useful developer skills.",
+              "concept": "A SyntaxError means Python could not understand the code structure. A traceback points to the file and line where Python noticed the problem. Fix the code and run it again.",
+              "steps": [
+                "Temporarily remove the closing parenthesis from the print line.",
+                "Run the file and read the error message and line number.",
+                "Restore the parenthesis, save, and run again.",
+                "Change the text inside the quotes and confirm the output changes."
+              ],
+              "code": "print(\"I can read an error\")",
+              "expected": "I can read an error",
+              "hint": "Strings need matching quote marks, and function calls need matching parentheses. Start at the last line of the traceback."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "title": "Level 2 Â· Python foundations",
+      "tag": "CORE SKILL",
+      "description": "Use values, decisions, loops, and functions to write useful programs.",
+      "icon": "Py",
+      "tone": "#f5efd8",
+      "time": "1 hr 20 min",
+      "status": "upcoming",
+      "sections": [
+        {
+          "title": "Write small programs",
+          "lessons": [
+            {
+              "id": "l2-values",
+              "title": "Variables and basic types",
+              "time": "12 min",
+              "intro": "Programs become useful when they can keep information, transform it, and display a result.",
+              "concept": "A variable is a name that refers to a value. Common types include str for text, int for whole numbers, float for decimals, and bool for True/False. Use descriptive names that explain what a value represents.",
+              "steps": [
+                "Create a file named profile.py.",
+                "Store a learner name, completed lesson count, and active status in variables.",
+                "Print a short progress summary using an f-string.",
+                "Change the values and run again."
+              ],
+              "code": "learner_name = \"Sam\"\nlessons_done = 2\nactive = True\n\nprint(f\"{learner_name} finished {lessons_done} lessons. Active: {active}\")",
+              "expected": "Sam finished 2 lessons. Active: True",
+              "hint": "An f-string starts with f before the quote. Put variable names inside curly braces."
+            },
+            {
+              "id": "l2-decisions",
+              "title": "Make decisions with if",
+              "time": "12 min",
+              "intro": "Programs can choose what to do based on the data they receive.",
+              "concept": "An if statement checks a condition. Python runs the indented block only when the condition is true. elif checks another condition; else handles the remaining cases. Indentation is part of Python syntax.",
+              "steps": [
+                "Create a file named progress.py.",
+                "Set lessons_done to 3.",
+                "Print a different message for zero lessons, some progress, and all lessons complete.",
+                "Try values 0, 2, and 4."
+              ],
+              "code": "lessons_done = 3\ntotal_lessons = 4\n\nif lessons_done == 0:\n    print(\"Start with lesson one.\")\nelif lessons_done < total_lessons:\n    print(f\"You have {total_lessons - lessons_done} lessons left.\")\nelse:\n    print(\"Level complete!\")",
+              "expected": "You have 1 lessons left.",
+              "hint": "Python compares numbers with <, >, and ==. The double equals checks equality; a single equals assigns a value."
+            },
+            {
+              "id": "l2-loops",
+              "title": "Repeat work with loops",
+              "time": "14 min",
+              "intro": "Loops save you from writing the same operation repeatedly.",
+              "concept": "A for loop visits each item in a sequence. range(n) creates numbers from 0 up to (but not including) n. Use a loop when the same operation should happen for every item.",
+              "steps": [
+                "Create a list of three lesson names.",
+                "Use a for loop to print each lesson with a numbered prefix.",
+                "Use enumerate with start=1 to produce friendly numbering.",
+                "Add a fourth lesson and rerun."
+              ],
+              "code": "lessons = [\"Install Python\", \"Create a file\", \"Run the program\"]\n\nfor number, lesson in enumerate(lessons, start=1):\n    print(f\"{number}. {lesson}\")",
+              "expected": "1. Install Python\n2. Create a file\n3. Run the program",
+              "hint": "The loop body is indented. enumerate gives you both the item number and the item."
+            },
+            {
+              "id": "l2-functions",
+              "title": "Organize code with functions",
+              "time": "14 min",
+              "intro": "Functions give a name to a small job so you can reuse it and test it independently.",
+              "concept": "Define a function with def. Parameters are inputs; return sends a result back to the caller. Keep each function focused on one responsibility and choose a name that describes its job.",
+              "steps": [
+                "Define a function that calculates a completion percentage.",
+                "Return the percentage rather than printing it inside the function.",
+                "Call the function with different completed and total counts.",
+                "Print the returned value with a percent sign."
+              ],
+              "code": "def completion_percent(done, total):\n    if total == 0:\n        return 0\n    return round(done / total * 100)\n\nprogress = completion_percent(3, 4)\nprint(f\"Progress: {progress}%\")",
+              "expected": "Progress: 75%",
+              "hint": "return gives a value back. print only displays a value. They solve different problems."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "title": "Level 3 Â· Build your first Python project",
+      "tag": "HANDS-ON PROJECT",
+      "description": "Combine Python fundamentals into a small command-line learning tracker.",
+      "icon": "âœ³",
+      "tone": "#f1e7f1",
+      "time": "1 hr 30 min",
+      "status": "upcoming",
+      "sections": [
+        {
+          "title": "Project: Learning progress tracker",
+          "lessons": [
+            {
+              "id": "l3-plan",
+              "title": "Plan the tracker",
+              "time": "10 min",
+              "intro": "Before coding, decide what your program should do and what data it needs. A small plan keeps a project manageable.",
+              "concept": "A requirement describes a behavior the user needs. This project will store lesson titles and completion status, show a progress summary, and let the learner mark a lesson complete. We will first keep the data in memory; later levels can add files, databases, and APIs.",
+              "steps": [
+                "Create a new folder named learning-tracker and open it in VS Code.",
+                "Create tracker.py.",
+                "Write down the project inputs (lesson list) and outputs (status and percentage).",
+                "Use a list of dictionaries: each lesson has a title and a done value."
+              ],
+              "code": "lessons = [\n    {\"title\": \"Install VS Code\", \"done\": True},\n    {\"title\": \"Install Python\", \"done\": True},\n    {\"title\": \"Run first program\", \"done\": False},\n]",
+              "expected": "The program has three lesson records. Two are complete and one remains.",
+              "hint": "A dictionary stores named fields. A list stores several records in order."
+            },
+            {
+              "id": "l3-progress",
+              "title": "Calculate and display progress",
+              "time": "15 min",
+              "intro": "Use a function to calculate progress from the lesson data instead of hard-coding the answer.",
+              "concept": "Derived values should come from the source data. Count completed lessons, divide by the total, and guard against an empty list so the calculation does not divide by zero.",
+              "steps": [
+                "Add a count_completed function that counts records whose done value is true.",
+                "Add a progress_percent function that returns 0 for an empty list.",
+                "Print the number completed and the percentage.",
+                "Change one done value and see the result update."
+              ],
+              "code": "def count_completed(lessons):\n    return sum(1 for lesson in lessons if lesson[\"done\"])\n\ndef progress_percent(lessons):\n    if not lessons:\n        return 0\n    return round(count_completed(lessons) / len(lessons) * 100)\n\nprint(f\"Progress: {count_completed(lessons)}/{len(lessons)} lessons ({progress_percent(lessons)}%)\")",
+              "expected": "Progress: 2/3 lessons (67%)",
+              "hint": "sum can add numbers. The expression 1 for each completed lesson counts how many are complete."
+            },
+            {
+              "id": "l3-mark",
+              "title": "Mark a lesson complete",
+              "time": "15 min",
+              "intro": "Add a small interaction: the learner chooses a lesson number and the program updates its status.",
+              "concept": "User input arrives as text, even when it looks like a number. Convert it with int before using it as a list index. Validate the range before accessing the list to avoid an IndexError.",
+              "steps": [
+                "Print each lesson with a number starting at 1.",
+                "Ask the learner which lesson to complete.",
+                "Convert their answer to an integer and check it is between 1 and the number of lessons.",
+                "Update the selected lesson and print the new progress."
+              ],
+              "code": "for number, lesson in enumerate(lessons, start=1):\n    status = \"âœ“\" if lesson[\"done\"] else \"â—‹\"\n    print(f\"{number}. {status} {lesson['title']}\")\n\nchoice = int(input(\"Lesson number to complete: \"))\nif 1 <= choice <= len(lessons):\n    lessons[choice - 1][\"done\"] = True\n    print(\"Lesson marked complete.\")\nelse:\n    print(\"Choose a number from the list.\")",
+              "expected": "After entering 3, the program prints: Lesson marked complete.",
+              "hint": "Lists start at index 0, but people count from 1. That is why the selected index is choice - 1."
+            },
+            {
+              "id": "l3-capstone",
+              "title": "Put it together and improve it",
+              "time": "25 min",
+              "intro": "Finish the project by combining the lesson list, helper functions, menu, and progress report into one runnable script.",
+              "concept": "A useful first version is small, complete, and easy to run. Before adding advanced features, make sure the main path works and errors are handled in a helpful way. This project is intentionally local and does not need an account or API key.",
+              "steps": [
+                "Combine the earlier snippets into tracker.py.",
+                "Add a menu that lets the learner list lessons, mark one complete, or quit.",
+                "Handle non-number input with try/except ValueError and show a friendly message.",
+                "Run the app twice and note that progress resets. In a later level, persist it to a JSON file."
+              ],
+              "code": "def show_lessons(lessons):\n    for number, lesson in enumerate(lessons, start=1):\n        status = \"âœ“\" if lesson[\"done\"] else \"â—‹\"\n        print(f\"{number}. {status} {lesson['title']}\")\n\nshow_lessons(lessons)\nprint(f\"Progress: {progress_percent(lessons)}%\")",
+              "expected": "A numbered lesson list and a progress percentage based on the current data.",
+              "hint": "Build one feature at a time: list lessons first, then mark complete, then add the menu. Keep a working copy before each larger change."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rag",
+      "title": "Level 4 Â· RAG & knowledge systems",
+      "tag": "COMING NEXT",
+      "description": "Load documents, retrieve relevant context, and evaluate grounded answers.",
+      "icon": "â—«",
+      "tone": "#e4eff2",
+      "time": "Coming soon",
+      "status": "locked",
+      "sections": []
+    },
+    {
+      "id": "agents",
+      "title": "Level 5 Â· Agents, tools & MCP",
+      "tag": "COMING NEXT",
+      "description": "Build tool-using agent workflows with clear boundaries and observable behavior.",
+      "icon": "âŒ˜",
+      "tone": "#f5e8de",
+      "time": "Coming soon",
+      "status": "locked",
+      "sections": []
+    },
+    {
+      "id": "production",
+      "title": "Level 6 Â· Google Cloud deployment",
+      "tag": "GCP DEPLOYMENT",
+      "description": "Containerize an AI app, publish it to Artifact Registry, deploy to Cloud Run, and automate releases.",
+      "icon": "â†—",
+      "tone": "#e3ebdf",
+      "time": "3 hr 15 min",
+      "status": "locked",
+      "sections": [
+        {
+          "title": "Section A Â· Google Cloud account and project",
+          "lessons": [
+            {
+              "id": "l6-project-create",
+              "title": "Create your Google Cloud account and project",
+              "time": "25 min",
+              "intro": "Before a CLI can address cloud resources, you need a Google sign-in, a Google Cloud project, and (for many services) an active billing account linked to that project.",
+              "concept": "A Google account is the identity you sign in with. A Google Cloud project is the container for resources and has a unique Project ID. The display name can be changed; the Project ID is the value you pass to gcloud. Billing links usage to a Cloud Billing account. Eligibility and trial offers vary. Linking billing can lead to charges, so use a project you are authorized to manage and set budget alerts.",
+              "steps": [
+                "If you do not have an authorized Google account, create one or use your organization account: https://accounts.google.com/signup",
+                "Open the Google Cloud Console and sign in: https://console.cloud.google.com/",
+                "Create a new project. Give it a recognizable name, choose the organization or folder if prompted, and record the generated Project ID. Project IDs must be unique.",
+                "In Billing, create or select a Cloud Billing account and link it to the project if required for the services in this course: https://console.cloud.google.com/billing",
+                "Set a budget and alert thresholds. A budget alert notifies you; it is not a hard spending cap. Follow your organization billing policy."
+              ],
+              "code": "PROJECT_ID = \"copy-the-exact-project-id-here\"\nREGION = \"asia-south1\"",
+              "expected": "You can select the project in Cloud Console and have its exact Project ID recorded separately from its display name. Billing status is visible for the project.",
+              "hint": "Do not guess a project ID or use a project you do not own. Billing setup can require payment details and cloud usage can incur charges. Project guide: https://cloud.google.com/resource-manager/docs/creating-managing-projects and billing guide: https://cloud.google.com/billing/docs/how-to/modify-project"
+            }
+          ]
+        },
+        {
+          "title": "Section B Â· Install the Google Cloud CLI",
+          "lessons": [
+            {
+              "id": "l6-cli-install",
+              "title": "Install the Google Cloud CLI",
+              "time": "20 min",
+              "intro": "The Google Cloud CLI is the local command-line tool for authenticating and configuring projects. Its primary command is gcloud; it is not a separate â€œGCB CLI.â€",
+              "concept": "Install the CLI before running gcloud commands. On Windows, the official installer can bundle a supported Python runtime for the CLI. This is separate from the Python version you install for application development. On macOS and Linux, follow the matching installer steps in Googleâ€™s guide.",
+              "steps": [
+                "Download the official Google Cloud CLI installer: https://cloud.google.com/sdk/docs/install",
+                "On Windows, run the signed installer and keep bundled Python enabled unless you already have a supported CLI runtime configured.",
+                "Finish installation, close the terminal, then open a fresh PowerShell or Google Cloud CLI terminal so PATH updates are picked up.",
+                "Check the installation. On PowerShell, use gcloud.cmd if the gcloud.ps1 launcher is blocked by execution policy."
+              ],
+              "code": "# Windows PowerShell\ngcloud.cmd --version\n\n# macOS / Linux\ngcloud --version",
+              "expected": "The command prints a Google Cloud CLI version and lists installed components.",
+              "hint": "If the command is not found, restart the terminal and confirm the installer added the CLI to PATH. Official install guide: https://cloud.google.com/sdk/docs/install"
+            }
+          ]
+        },
+        {
+          "title": "Section C Â· Basic gcloud settings",
+          "lessons": [
+            {
+              "id": "l6-gcloud",
+              "title": "Sign in, select a project, and set defaults",
+              "time": "20 min",
+              "intro": "Now that the CLI is installed and you created a project, connect the CLI to your Google account and select that exact Project ID.",
+              "concept": "gcloud auth login opens a browser sign-in. gcloud config set project chooses the active project for subsequent commands. Keep project and region explicit in deployment scripts. The Notion deployment example uses asia-south1; use a region supported by the services and policy for your own project.",
+              "steps": [
+                "Sign in with the Google account that has access to the project.",
+                "Copy your Project ID from the Cloud Console project selector and set it as PROJECT_ID.",
+                "Set the default Cloud Run region. This course uses asia-south1 to match the Notion deployment example.",
+                "Enable Cloud Run, Artifact Registry, and Secret Manager APIs. Enable Cloud Build only if you choose its optional build path.",
+                "Verify the active account, project, region, and enabled APIs before creating resources."
+              ],
+              "code": "# Windows PowerShell; replace with your project ID\n$PROJECT_ID = \"YOUR_PROJECT_ID\"\n$REGION = \"asia-south1\"\ngcloud.cmd auth login\ngcloud.cmd config set project $PROJECT_ID\ngcloud.cmd config set run/region $REGION\ngcloud.cmd services enable run.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com --project=$PROJECT_ID\n# Optional: enable only if using Google Cloud Build\ngcloud.cmd services enable cloudbuild.googleapis.com --project=$PROJECT_ID\ngcloud.cmd auth list\ngcloud.cmd config list",
+              "expected": "Your Google account is listed as active, gcloud config shows the project ID and region, and required APIs are enabled. Cloud Build is enabled only if you will use it.",
+              "hint": "If you see a permission error, ask the project administrator for the required role; do not change organization policy yourself. API guide: https://cloud.google.com/service-usage/docs/enable-disable"
+            }
+          ]
+        },
+        {
+          "title": "Section D Â· Docker and Artifact Registry",
+          "lessons": [
+            {
+              "id": "l6-artifact-registry",
+              "title": "Build and publish a Docker image",
+              "time": "25 min",
+              "intro": "Cloud Run starts a container image. Artifact Registry stores that image so your service can deploy a known, versioned build.",
+              "concept": "Cloud Build is Google Cloudâ€™s managed build service; its commands are part of the gcloud CLI. The Notion GitHub Actions workflow builds the Docker image on its runner, so it does not require Cloud Build. For a local manual path, Docker Desktop builds the image. Both approaches publish a container image to Artifact Registry.",
+              "steps": [
+                "Install Docker Desktop and start it if you plan to build locally.",
+                "In Cloud Console, create or confirm a Docker repository in Artifact Registry in your selected region.",
+                "Copy the actual repository name; the Notion notes specifically say to verify it rather than assume a value.",
+                "Authenticate Docker to the regional registry, build and tag your app image, push it, then list the image to confirm it arrived.",
+                "Optional Cloud Build path: use gcloud builds submit --tag IMAGE . to build remotely; this is a managed Google Cloud service, not another local CLI to install."
+              ],
+              "code": "# PowerShell: use your project ID and verified repository name\n$PROJECT_ID = \"YOUR_PROJECT_ID\"\n$REGION = \"asia-south1\"\n$ARTIFACT_REPO = \"YOUR_VERIFIED_REPOSITORY\"\n$SERVICE = \"adk-agent\"\n$IMAGE = \"$REGION-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO/$SERVICE:v1\"\n\ngcloud.cmd artifacts repositories list --location=$REGION --project=$PROJECT_ID\ngcloud.cmd auth configure-docker \"$REGION-docker.pkg.dev\"\ndocker build -t $IMAGE .\ndocker push $IMAGE\n# Optional alternative: build remotely with Cloud Build\n# gcloud.cmd builds submit --tag $IMAGE .\ngcloud.cmd artifacts docker images list \"$REGION-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO\"",
+              "expected": "The image appears in the Artifact Registry repository. If you used Cloud Build, its build history shows a successful build and the resulting image.",
+              "hint": "Replace YOUR_PROJECT_ID and YOUR_VERIFIED_REPOSITORY with exact values. Use Cloud Build only if you enabled the API and have its required IAM permissions. Guides: https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images and https://cloud.google.com/build/docs/build-push-docker-image"
+            }
+          ]
+        },
+        {
+          "title": "Section E Â· IAM and Secret Manager",
+          "lessons": [
+            {
+              "id": "l6-secrets",
+              "title": "Store the model key in Secret Manager",
+              "time": "20 min",
+              "intro": "The agent needs a provider key at runtime. Keep that value in Secret Manager and grant access to the Cloud Run runtime identity only.",
+              "concept": "The deployment notes use a secret named groq-api-key and a separate adk-runtime service account. The CI deployer and running app are different identities: the GitHub deployer publishes and deploys; adk-runtime reads the model secret. Do not place the key in source code, a Docker image, or lesson content.",
+              "steps": [
+                "Confirm the selected gcloud project is the same project where the secret is stored.",
+                "Create or confirm the groq-api-key secret in the correct Google Cloud project using Cloud Console Secret Manager.",
+                "Add a secret version through the console without copying its value into a script or repository.",
+                "Confirm adk-runtime exists and grant it Secret Manager Secret Accessor on this secret.",
+                "Confirm the secret version is enabled before referencing it from Cloud Run."
+              ],
+              "code": "$PROJECT_ID = \"YOUR_PROJECT_ID\"\n$RUNTIME_SA = \"adk-runtime@$($PROJECT_ID).iam.gserviceaccount.com\"\n\ngcloud.cmd iam service-accounts list --project=$PROJECT_ID\ngcloud.cmd secrets versions list groq-api-key --project=$PROJECT_ID\ngcloud.cmd secrets add-iam-policy-binding groq-api-key `\n  --project=$PROJECT_ID `\n  --member=\"serviceAccount:$RUNTIME_SA\" `\n  --role=\"roles/secretmanager.secretAccessor\"",
+              "expected": "The runtime service account is listed, the secret has an enabled version, and the IAM binding succeeds.",
+              "hint": "Never paste the secret value into this portal or GitHub. If a real key was exposed in an old note or commit, rotate it and deploy a new secret version. Docs: https://cloud.google.com/secret-manager/docs and https://cloud.google.com/run/docs/configuring/services/secrets"
+            }
+          ]
+        },
+        {
+          "title": "Section F Â· Deploy to Cloud Run",
+          "lessons": [
+            {
+              "id": "l6-cloud-run",
+              "title": "Deploy the container to Cloud Run",
+              "time": "20 min",
+              "intro": "Cloud Run runs the published container and gives the service an HTTPS URL. The Cloud Run service should run as adk-runtime so it can read the model key.",
+              "concept": "The deployment notes identify service adk-agent, region asia-south1, app my_agent, and a pinned Secret Manager version. Public access is a separate choice: --allow-unauthenticated makes the service reachable by anyone with the URL and can let others consume model quota. Keep authentication enabled unless public access is intentional.",
+              "steps": [
+                "Confirm the Artifact Registry image is present and the runtime service account can access the secret.",
+                "Set the container image to the image you pushed in the previous lesson.",
+                "Deploy service adk-agent in asia-south1 using the adk-runtime service account.",
+                "Map GROQ_API_KEY to the named Secret Manager version.",
+                "Choose public or authenticated access deliberately; do not add --allow-unauthenticated by default.",
+                "Save the service URL returned by gcloud for the verification lesson."
+              ],
+              "code": "$PROJECT_ID = \"YOUR_PROJECT_ID\"\n$REGION = \"asia-south1\"\n$SERVICE = \"adk-agent\"\n$RUNTIME_SA = \"adk-runtime@$($PROJECT_ID).iam.gserviceaccount.com\"\n$IMAGE = \"$REGION-docker.pkg.dev/$PROJECT_ID/YOUR_VERIFIED_REPOSITORY/$SERVICE:v1\"\n\ngcloud.cmd run deploy $SERVICE `\n  --image $IMAGE `\n  --region $REGION `\n  --project $PROJECT_ID `\n  --service-account $RUNTIME_SA `\n  --update-secrets=GROQ_API_KEY=groq-api-key:1",
+              "expected": "The deployment completes and gcloud prints the Cloud Run service URL. The new revision uses the selected image and runtime service account.",
+              "hint": "Replace REPLACE_REPO with the verified repository name. Add --allow-unauthenticated only if you have chosen to expose a public demo and added appropriate cost and abuse controls. Docs: https://cloud.google.com/run/docs/deploying and https://cloud.google.com/run/docs/configuring/services/secrets"
+            }
+          ]
+        },
+        {
+          "title": "Section G Â· GitHub Actions automation",
+          "lessons": [
+            {
+              "id": "l6-actions",
+              "title": "Connect GitHub Actions to Google Cloud",
+              "time": "30 min",
+              "intro": "A deployment workflow can build the image after a push to main, publish it, and deploy that exact revision to Cloud Run.",
+              "concept": "The Notion project uses repository variables GCP_PROJECT_ID, GCP_REGION, GCP_ARTIFACT_REPO, and GCP_SERVICE, plus a deployer identity. Its existing workflow uses a JSON key secret named GCP_SA_KEY; Googleâ€™s auth action recommends Workload Identity Federation as the safer long-term option because it avoids a long-lived key. The runtime secret remains in Secret Manager, not GitHub Actions.",
+              "steps": [
+                "Open the adk-cicd-demo GitHub repository and inspect .github/workflows/deploy.yml.",
+                "Confirm the four repository variables match the real project, region, repository, and service.",
+                "Check that the deployment identity can push to Artifact Registry, deploy Cloud Run, and act as the runtime service account.",
+                "Prefer Workload Identity Federation for a new setup; if following the existing demo workflow, never expose or paste the GCP_SA_KEY value.",
+                "Push a small change to main or manually run the workflow, then read each Actions step."
+              ],
+              "code": "# PowerShell: inspect the active configuration before pushing\ngcloud.cmd config get-value project\ngcloud.cmd config get-value run/region\n\ngit status\ngit add .\ngit commit -m \"Deploy AI agent to Cloud Run\"\ngit push origin main",
+              "expected": "GitHub Actions checks out the code, authenticates, builds and pushes an image, then deploys it to Cloud Run. A green run confirms those workflow steps completed; it does not prove a model request works.",
+              "hint": "A successful deployment is not the same as a successful inference. Review GitHub Actions and use least-privilege roles. Docs: https://github.com/google-github-actions/auth"
+            }
+          ]
+        },
+        {
+          "title": "Section H Â· Verify, monitor, and clean up",
+          "lessons": [
+            {
+              "id": "l6-verify",
+              "title": "Verify the service and inspect logs",
+              "time": "25 min",
+              "intro": "Check the running service in layers: deployment status, health endpoint, registered app, then a real model request.",
+              "concept": "The successful GitHub Actions run recorded in Notion deployed commit 3dc68aa to Cloud Run. The notes list /health, /list-apps, /docs, and /openapi.json for the deployed service. A health check verifies the web process; only a real prompt confirms the Groq inference path works.",
+              "steps": [
+                "Make sure gcloud is still pointed at the same project and region you used for deployment.",
+                "Open the Cloud Run URL and confirm the chat UI loads.",
+                "Call /health and /list-apps from PowerShell.",
+                "Send a real prompt through the UI; verify the agent responds.",
+                "If the request fails, inspect recent Cloud Run logs and check secret access, app name, session IDs, and model errors.",
+                "Review Cloud Run access policy, scaling limits, and Billing budget alerts before sharing widely."
+              ],
+              "code": "$APP_URL = \"PASTE_THE_CLOUD_RUN_URL_FROM_DEPLOY_OUTPUT\"\nInvoke-RestMethod -Uri \"$APP_URL/health\" -Method Get\nInvoke-RestMethod -Uri \"$APP_URL/list-apps\" -Method Get\n\ngcloud.cmd run services logs read adk-agent `\n  --project=$PROJECT_ID `\n  --region=$REGION `\n  --limit=50",
+              "expected": "The health endpoint returns a healthy response, /list-apps includes my_agent, and the chat returns a response to a real prompt. Logs show no unresolved startup or secret-access errors.",
+              "hint": "The source notes say the current workflow allows unauthenticated access. Treat the URL as public, review cost and abuse controls, and add authentication before sharing beyond a controlled demo. Status and links: https://github.com/sivakavin/adk-cicd-demo and https://cloud.google.com/run/docs"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
